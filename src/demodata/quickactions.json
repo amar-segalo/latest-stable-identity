@@ -1,0 +1,48 @@
+ {
+        "tenants":[
+            {
+                "Id":1,
+                "Name":"MedexPharm",
+                "applications":[
+                    {
+                        "Id":1,
+                        "Name" : "MedexPharm",
+                        "quickActions":[
+                            {
+                                "Id":1,
+                                "Name":"Lista želja",
+                                "Icon": "/media/quickactions/wishlist.svg",
+                                "ActionUrl":"#"
+                            },
+                            {
+                                "Id":2,
+                                "Name":"Prikaži popuste",
+                                "Icon": "/media/quickactions/discount.svg",
+                                "ActionUrl":"#"
+                            },
+                            {
+                                "Id":3,
+                                "Name":"Informacije o profilu",
+                                "Icon": "/media/quickactions/account.svg",
+                                "ActionUrl":"#"
+                            }
+                        ] 
+                    },
+                    {
+                    "Id":2,
+                    "Name" : "EmaHealth",
+                    "quickActions":[
+                    {   
+                        "Id": 3,
+                        "Name":"Zakaži pregled",
+                        "Icon": "/media/quickactions/apointment.svg",
+                        "ActionUrl":"#"
+                    }
+                    ]
+                }
+                ]
+            }
+        ]
+    }
+    
+

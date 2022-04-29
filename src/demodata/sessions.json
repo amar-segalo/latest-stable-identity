@@ -1,0 +1,39 @@
+[
+  {
+      "userId":1,
+      "applicationdId":1,
+      "location": "United Kingdom",
+      "status":"Active",
+      "device":"Chrome-Windows",
+      "ipaddress":"236.125.56.78",
+      "time":"9:50"
+  },
+  {
+    "userId":1,
+    "applicationdId":2,
+    "location": "Bosnia and Hercegovina",
+    "status":"Inactive",
+    "device":"Firefox-Windows",
+    "ipaddress":"232.155.56.75",
+    "time":"11:52"
+},
+{
+    "userId":1,
+    "applicationdId":3,
+    "location": "Norway",
+    "status":"Active",
+    "device":"iOS",
+    "ipaddress":"116.135.46.28",
+    "time":"18:30"
+},
+{
+    "userId":1,
+    "applicationdId":4,
+    "location": "Japan",
+    "status":"Inactive",
+    "device":"Android",
+    "ipaddress":"231.225.16.72",
+    "time":"19:50"
+}
+
+]

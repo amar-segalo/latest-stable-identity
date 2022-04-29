@@ -1,0 +1,46 @@
+
+        {
+            
+            "activities":[
+                {
+                    "Id":1,
+                    "activity":"Prijava na EmaCloud",
+                    "activityType":1,
+                    "time":"09:45"
+                },
+                {
+                    "Id":2,
+                    "activity":"Pristup EmaHealth",
+                    "activityType":2,
+                    "time":"09:46"
+                },
+                {
+                    "Id":3,
+                    "activity":"Zakazan termin",
+                    "activityType":2,
+                    "time":"09:55"
+                },
+                {
+                    "Id":4,
+                    "activity":"Pristup MedexPharm",
+                    "activityType":2,
+                    "time":"10:00"
+                },
+                {
+                    "Id":5,
+                    "activity":"Napravljena narudžba",
+                    "activityType":2,
+                    "time":"10:05"
+                },
+                {
+                    "Id":6,
+                    "activity":"Odjava",
+                    "activityType":3,
+                    "time":"10:07"
+                }
+
+
+            ]
+          
+        }
+    

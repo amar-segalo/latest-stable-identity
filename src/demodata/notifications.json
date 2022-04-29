@@ -1,0 +1,52 @@
+ {
+     
+     "tenants":[
+         {
+             "Id":1,
+             "Name":"MedexPharm",
+             "applications":[
+                { 
+                    "Id":1,
+                    "Name":"EmaHealth",
+                    "Icon":"/media/logos/app-icon.png",
+                    "notifications":[
+                        {
+                            "Id":1,
+                            "Count":2
+                        }
+                        
+                    ]
+                },
+                { 
+                    "Id":2,
+                    "Name":"EmaCommerce",
+                    "Icon":"/media/logos/app-icon.png",
+                    "notifications":[
+                        {
+                            "Id":2,
+                            "Count":5
+                        }
+                        
+                    ]
+                },
+                { 
+                    "Id":3,
+                    "Name":"Skladište",
+                    "Icon":"/media/logos/app-icon.png",
+                    "notifications":[
+                        {
+                            "Id":3,
+                            "Count":0
+                        }
+                        
+                    ]
+                }
+
+
+             ]
+
+         }
+     ]
+ }
+
+

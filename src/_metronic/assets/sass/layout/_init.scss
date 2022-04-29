@@ -1,0 +1,27 @@
+//
+// Main init file of global bootstrap and theme functions, mixins, variables and config
+//
+
+
+// Custom functions & mixins
+@import "../../../../../../core/html/src/sass/base/functions";
+@import "../../../../../../core/html/src/sass/base/mixins";
+@import "../../../../../../core/html/src/sass/components/mixins";
+@import "../../../../../../core/html/src/sass/vendors/plugins/mixins";
+
+// Custom variables
+@import "components/variables.custom";
+@import "../../../../../../core/html/src/sass/components/variables";
+
+// Bootstrap initializaton
+@import "../../../../../../core/html/tools/node_modules/bootstrap/scss/functions";
+@import "../../../../../../core/html/tools/node_modules/bootstrap/scss/variables";
+@import "../../../../../../core/html/tools/node_modules/bootstrap/scss/mixins";
+@import "../../../../../../core/html/tools/node_modules/bootstrap/scss/utilities";
+
+// 3rd-Party plugins variables
+@import "../../../../../../core/html/src/sass/vendors/plugins/variables";
+
+// Custom layout variables
+@import "layout/variables";
+@import "../../../../../../core/html/src/sass/layout/docs/variables";
