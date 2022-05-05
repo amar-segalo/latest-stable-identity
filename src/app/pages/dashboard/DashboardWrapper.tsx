@@ -11,7 +11,6 @@ import {
   MixedWidget14,
   MixedWidget15,
 } from '../../../_metronic/partials/widgets'
-import { Addresses } from '../../modules/profile/components/Addresses'
 import { Documents } from '../../modules/profile/components/Documents'
 import { Orders } from '../../modules/profile/components/Orders'
 import { Overview } from '../../modules/profile/components/Overview'
@@ -38,8 +37,7 @@ const profileBreadCrumbs: Array<PageLink> = [
 
 const DashboardPage: FC = () => (
   <>
- <ProfileHeader></ProfileHeader>
- <Routes>
+    <Routes>
     <Route
       element={
         <>
@@ -52,7 +50,7 @@ const DashboardPage: FC = () => (
         path='overview'
         element={
           <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Pregled</PageTitle>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Overview</PageTitle>
             <Overview />
           </>
         }
@@ -61,7 +59,7 @@ const DashboardPage: FC = () => (
         path='projects'
         element={
           <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Postavke</PageTitle>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Projects</PageTitle>
             <Postavke />
           </>
         }
@@ -70,40 +68,29 @@ const DashboardPage: FC = () => (
         path='documents'
         element={
           <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Dokumenti</PageTitle>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Documents</PageTitle>
             <Documents />
           </>
         }
       />
          <Route
-        path='logs'
+        path='sessions'
         element={
           <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Sesije</PageTitle>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Sessions</PageTitle>
             <Sessions />
           </>
         }
       />
-          <Route
+           <Route
         path='orders'
         element={
           <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Narudžbe</PageTitle>
+            <PageTitle breadcrumbs={profileBreadCrumbs}>Orders</PageTitle>
             <Orders />
           </>
         }
       />
-
-<Route
-        path='addresses'
-        element={
-          <>
-            <PageTitle breadcrumbs={profileBreadCrumbs}>Adrese</PageTitle>
-            <Addresses />
-          </>
-        }
-      />
-     
      
   
       <Route index element={<Navigate to='/crafted/pages/profile/overview' />} />

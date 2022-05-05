@@ -9,7 +9,7 @@ import {register} from '../redux/AuthCRUD'
 import {Link} from 'react-router-dom'
 import {toAbsoluteUrl} from '../../../../_metronic/helpers'
 import {PasswordMeterComponent} from '../../../../_metronic/assets/ts/components'
-import {useNavigate} from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const initialValues = {
   firstname: '',
@@ -17,9 +17,10 @@ const initialValues = {
   email: '',
   password: '',
   passwordConfirmation: '',
-  phoneNumber: '+387',
+  phoneNumber:'+387',
   acceptTerms: false,
 }
+
 
 const registrationSchema = Yup.object().shape({
   firstname: Yup.string()
@@ -35,19 +36,19 @@ const registrationSchema = Yup.object().shape({
     .min(3, 'Minimalno 3 karaktera')
     .max(20, 'Maksimalno 50 karaktera')
     .required('Prezime je obavezno'),
-  phoneNumber: Yup.string()
+    phoneNumber: Yup.string()
     .min(11, 'Minimalno 11 brojeva')
     .max(25, 'Maksimalno 25 brojeva')
     .required('Broj telefona je obavezan'),
   password: Yup.string()
-    .min(8, 'Minimalno 8 karaktera')
+    .min(3, 'Minimalno 3 karaktera')
     .max(15, 'Maksimalno 15 karaktera')
     .required('Lozinka je obavezna'),
-  passwordConfirmation: Yup.string()
+    passwordConfirmation: Yup.string()
     .required('Potvrda lozinke je obavezna')
     .when('password', {
       is: (val: string) => (val && val.length > 0 ? true : false),
-      then: Yup.string().oneOf([Yup.ref('password')], 'Lozinke se ne podudaraju'),
+      then: Yup.string().oneOf([Yup.ref('password')], "Lozinke se ne podudaraju"),
     }),
   acceptTerms: Yup.bool().required('Morate prihvatiti uvjete koristenja'),
 })
@@ -55,31 +56,31 @@ const registrationSchema = Yup.object().shape({
 export function Registration() {
   const [loading, setLoading] = useState(false)
   const dispatch = useDispatch()
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues,
     validationSchema: registrationSchema,
     onSubmit: (values, {setStatus, setSubmitting}) => {
       setLoading(false)
-      register(
-        values.email,
-        values.firstname,
-        values.lastname,
-        values.password,
-        values.passwordConfirmation,
-        values.phoneNumber
-      )
-        .then(({data: {api_token}}) => {
-          setLoading(false)
-          dispatch(auth.actions.register(api_token))
-          navigate('/')
-        })
-        .catch(() => {
-          setLoading(false)
-          setSubmitting(false)
-          setStatus('Registration process has broken')
-        })
-      setLoading(false)
+       register(
+          values.email,
+          values.firstname,
+          values.lastname,
+          values.password,
+          values.passwordConfirmation,
+          values.phoneNumber
+        )
+          .then(({data: {api_token}}) => {
+            setLoading(false)
+            dispatch(auth.actions.register(api_token))
+            navigate('/')
+          })
+          .catch(() => {
+            setLoading(false)
+            setSubmitting(false)
+            setStatus('Registration process has broken')
+          })
+          setLoading(false);
     },
   })
 
@@ -112,8 +113,10 @@ export function Registration() {
       {/* end::Heading */}
 
       {/* begin::Action */}
-
+      
+      
       {/* end::Action */}
+
 
       {formik.status && (
         <div className='mb-lg-15 alert alert-danger'>
@@ -287,12 +290,10 @@ export function Registration() {
           className={clsx(
             'form-control form-control-lg form-control-solid',
             {
-              'is-invalid':
-                formik.touched.passwordConfirmation && formik.errors.passwordConfirmation,
+              'is-invalid': formik.touched.passwordConfirmation && formik.errors.passwordConfirmation,
             },
             {
-              'is-valid':
-                formik.touched.passwordConfirmation && !formik.errors.passwordConfirmation,
+              'is-valid': formik.touched.passwordConfirmation && !formik.errors.passwordConfirmation,
             }
           )}
         />
@@ -321,7 +322,7 @@ export function Registration() {
           >
             Slažem se sa{' '}
             <Link to='/auth/terms' className='ms-1 link-primary'>
-              uvjetima korištenja
+             uvjetima korištenja
             </Link>
             .
           </label>

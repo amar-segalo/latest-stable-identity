@@ -29,11 +29,9 @@ const QuickActions: React.FC<Props> = ({className}) => {
                return tenant.applications?.map((application)=>{
                 return  application.quickActions?.map((quickaction)=>{
                   return <div className='col-md-3 text-center' key={quickaction.Id}>
-                    <a href={quickaction.ActionUrl}>
                   <div className='symbol symbol-100px '>
-             <img src={toAbsoluteUrl(quickaction.Icon)} className='text-center' alt=''  /> 
+                 <img src={toAbsoluteUrl(quickaction.Icon)} className='text-center' alt='' />
                </div>
-               </a>
                  <div className=' fw-bold text-gray-800 fs-6'>{application.Name}</div>
                  <span className='text-muted d-block fw-bold'>{quickaction.Name}</span>
                </div>

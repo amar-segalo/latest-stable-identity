@@ -10,25 +10,25 @@ import {
   ListsWidget2,
   QuickActions,
 } from '../../../../_metronic/partials/widgets'
-import {Orders} from './Orders'
 
 export function Overview() {
   return (
-    <>
-      <div className='row g-5 g-xxl-8'>
-        <div className='col-xl-12'>
-          <QuickActions className='mb-5 mb-xxl-8'></QuickActions>
-        </div>
+  <>
+    <div className='row g-5 g-xxl-8'>
+    <div className='col-xl-12'>
+      <QuickActions className='mb-5 mb-xxl-8'></QuickActions>
+</div>
+
+    </div>
+    <div className='row g-5 g-xxl-8'>
+       <div className='col-xl-6'>
+     <ListsWidget2 className='mb-5 mb-xxl-8' />
+</div>
+      <div className='col-xl-6'>
+        <ListsWidget5 className='mb-5 mb-xxl-8' />
       </div>
-      <Orders></Orders>
-      <div className='row g-5 g-xxl-8'>
-        <div className='col-xl-6'>
-          <ListsWidget2 className='mb-5 mb-xxl-8' />
-        </div>
-        <div className='col-xl-6'>
-          <ListsWidget5 className='mb-5 mb-xxl-8' />
-        </div>
-      </div>
+     
+    </div>
     </>
   )
 }

@@ -32,7 +32,7 @@ const AsideMenuItem: React.FC<Props> = ({
           </span>
         )}
        <div className='symbol symbol-50px me-5'>
-             <img src={toAbsoluteUrl(icon!)} className='' alt='' />
+             <img src={toAbsoluteUrl('/media/logos/app-icon.png')} className='' alt='' />
            </div>
         <span className='menu-title'>{title}</span>
       </Link>

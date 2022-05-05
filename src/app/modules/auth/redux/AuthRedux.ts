@@ -3,11 +3,11 @@ import {persistReducer} from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import {put, takeLatest, select} from 'redux-saga/effects'
 import {UserModel} from '../models/UserModel'
-import {getUserByToken, logout} from './AuthCRUD'
+import {getUserByToken, logout} from "./AuthCRUD";
 import jwtDecode from 'jwt-decode'
-import {getStorageAccessToken} from '../../../helpers/helpers'
-import {stat} from 'fs'
-import {UserPersonalInformationModel} from '../models/UserPersonalInfromationModel'
+import { getStorageAccessToken } from '../../../helpers/helpers'
+import { stat } from 'fs'
+
 
 export interface ActionWithPayload<T> extends Action {
   payload?: T
@@ -20,7 +20,7 @@ export const actionTypes = {
   UserRequested: '[Request User] Action',
   UserLoaded: '[Load User] Auth API',
   SetUser: '[Set User] Action',
-  UpdateUserPersonal: '[UpdateUserPersonal] Action',
+  UpdateUserPersonal:'[UpdateUserPersonal] Action'
 }
 
 const initialAuthState: IAuthState = {
@@ -31,58 +31,58 @@ const initialAuthState: IAuthState = {
 export interface IAuthState {
   user?: UserModel
   accessToken?: string
-  userPersonal?: UserPersonalInformationModel
+ 
 }
 
+
 export const reducer = persistReducer(
+ 
   {storage, key: 'emaq-usersession', whitelist: ['user', 'accessToken']},
   (state: IAuthState = initialAuthState, action: ActionWithPayload<IAuthState>) => {
     switch (action.type) {
       case actionTypes.Login: {
         const accessToken = action.payload?.accessToken
-        let user
-        if (accessToken != null) {
-          var decoded: UserModel = jwtDecode(accessToken)
-          console.log('DECODED', decoded)
-          return {accessToken, user: decoded}
+        let user;
+        if(accessToken != null){
+          var decoded:UserModel = jwtDecode(accessToken);
+           return {accessToken, user: decoded}
         }
-        console.log('not reached')
-
         return {accessToken, user: user}
       }
       case actionTypes.Register: {
         const accessToken = action.payload?.accessToken
-        let user
-        if (accessToken != null) {
-          var decoded: UserModel = jwtDecode(accessToken)
-
-          return {accessToken, user: decoded}
+        let user;
+        if(accessToken != null){
+          var decoded:UserModel = jwtDecode(accessToken);
+        
+           return {accessToken, user: decoded}
         }
         return {accessToken, user: user}
       }
       case actionTypes.Logout: {
-        logout(getStorageAccessToken()).then((response) => {})
-        localStorage.removeItem('emaq-refreshToken')
-        localStorage.removeItem('persist:emaq-usersession')
+          logout(getStorageAccessToken()).then(response =>{
+          })
+          localStorage.removeItem('emaq-refreshToken');
+          localStorage.removeItem('persist:emaq-usersession');
         return initialAuthState
       }
 
       case actionTypes.UserLoaded: {
         const user = action.payload?.user
-
+     
         return {...state, user}
       }
 
       case actionTypes.SetUser: {
-        const usr = action.payload?.user
-        let previousUser = state.user
-        if (previousUser) {
-          previousUser.username = usr?.username!
-          previousUser.photoUrl = usr?.photoUrl!
-        }
-
-        return {...state, user: previousUser}
+       const user = action.payload?.user
+   
+        console.log(user,"setUser")
+        return {...state, user}
       }
+      case actionTypes.UpdateUserPersonal:{
+        return state;
+      }
+
 
       default:
         return state
@@ -102,7 +102,7 @@ export const actions = {
   }),
   fulfillUser: (user: UserModel) => ({type: actionTypes.UserLoaded, payload: {user}}),
   setUser: (user: UserModel) => ({type: actionTypes.SetUser, payload: {user}}),
-  UpdateUserPersonal: (obj: any) => ({type: actionTypes.UpdateUserPersonal, payload: {obj}}),
+  UpdateUserPersonal:(obj:any) =>({type:actionTypes.UpdateUserPersonal,payload:{obj}})
 }
 
 export function* saga() {
@@ -120,10 +120,10 @@ export function* saga() {
 
   yield takeLatest(actionTypes.UserRequested, function* userRequested() {
     // @ts-ignore
-    const getToken = (state) => state.auth.accessToken
+    const getToken = (state) => state.auth.accessToken;
     // @ts-ignore
     let token = yield select(getToken)
-    const user: UserModel = yield getUserByToken(token)
+    const user:UserModel = yield getUserByToken(token)
     yield put(actions.fulfillUser(user))
   })
 }

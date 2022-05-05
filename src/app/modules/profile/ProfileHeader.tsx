@@ -13,7 +13,6 @@ import { object } from 'yup'
 import { UserHeaderModel } from '../auth/models/UserHeaderModel'
 import { getStorageAccessToken } from '../../helpers/helpers'
 import { getUserPoints } from '../../services/OrdersServices'
-import store from '../../../setup/redux/Store'
 
 const ProfileHeader: React.FC = () => {
  
@@ -43,9 +42,7 @@ const ProfileHeader: React.FC = () => {
 useEffect(()=>{
   getUserInfo(getStorageAccessToken()).then(response=>{
 setHasData(true);
-
   })
-  console.log(store.getState());
 
   getUserPoints().then(response =>{
     calculatePoints(response.data.resultList);
