@@ -6,31 +6,31 @@
                 "applications":[
                     {
                         "Id":1,
-                        "Name" : "MedexPharm",
+                        "Name" : "Medex Pharm",
                         "quickActions":[
                             {
                                 "Id":1,
                                 "Name":"Lista želja",
                                 "Icon": "/media/quickactions/wishlist.svg",
-                                "ActionUrl":"#"
+                                "ActionUrl":"https://medex-pharm.ba/Wishlist"
                             },
                             {
                                 "Id":2,
                                 "Name":"Prikaži popuste",
                                 "Icon": "/media/quickactions/discount.svg",
-                                "ActionUrl":"#"
+                                "ActionUrl":"https://medex-pharm.ba/Shop?categoryId=20&subcategoryId=65"
                             },
                             {
                                 "Id":3,
-                                "Name":"Informacije o profilu",
+                                "Name":"Naši proizvodi",
                                 "Icon": "/media/quickactions/account.svg",
-                                "ActionUrl":"#"
+                                "ActionUrl":"https://medex-pharm.ba/Shop?brandId=54"
                             }
                         ] 
                     },
                     {
                     "Id":2,
-                    "Name" : "EmaHealth",
+                    "Name" : "Ema Health",
                     "quickActions":[
                     {   
                         "Id": 3,
